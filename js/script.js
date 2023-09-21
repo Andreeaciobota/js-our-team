@@ -8,9 +8,7 @@
 
 //background 
 const body = document.body;
-body.style.backgroundColor = 'rgb(5, 73, 115';
-
-
+body.style.backgroundColor = 'rgb(5, 73, 115)';
 
 
 const team = [
@@ -45,23 +43,29 @@ const team = [
       pic: 'barbara-ramos-graphic-designer.jpg'
   }
 ]
+// pubblico informazioni 
 
 const display = document.getElementById('result')
-let list = '';
+let listElement = '';
 let listName = '';
 let listJob = '';
 let listPic = '';
-display.append(list);
 
-//pubblico 
 
 for(let i = 0; i < team.length; i++){
   const employee = team[i];
+
+  //creazione  card
+  let card = document.createElement('div')
+  card.className = '_card';    
+
+  //lista
+  listPic = `<ul><img src="../img/${employee['pic']}" alt="">`
   listName = `<li>name: ${employee['name']}</li>`
-    listJob = `<li>job: ${employee['job']}</li>`
-    listPic = `<img src="../img/${employee['pic']}" alt="">`
+  listJob = `<li>job: ${employee['job']}</li></ul>`
 
-    list+= listName += listJob += listPic
+  // pubblico
+  listElement = listPic += listName += listJob
+  card.innerHTML = listElement;
+  display.append(card)
 }
-
-display.innerHTML = list
