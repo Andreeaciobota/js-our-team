@@ -6,6 +6,13 @@
 //Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg
 
 
+//background 
+const body = document.body;
+body.style.backgroundColor = 'rgb(5, 73, 115';
+
+
+
+
 const team = [
   {
       name: 'Wayne Barnett',
@@ -39,13 +46,22 @@ const team = [
   }
 ]
 
+const display = document.getElementById('result')
+let list = '';
+let listName = '';
+let listJob = '';
+let listPic = '';
+display.append(list);
 
 //pubblico 
 
 for(let i = 0; i < team.length; i++){
   const employee = team[i];
-  console.log('name: ' + employee['name'])
-  console.log('job: ' + employee['job'])
-  console.log('pic: ' + employee['pic'])
-  console.log('---------')
+  listName = `<li>name: ${employee['name']}</li>`
+    listJob = `<li>job: ${employee['job']}</li>`
+    listPic = `<img src="../img/${employee['pic']}" alt="">`
+
+    list+= listName += listJob += listPic
 }
+
+display.innerHTML = list
